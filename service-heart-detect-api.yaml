@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: heart-detect-api
+  labels:
+    name: heart-detect-api
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080#ClusterIP Port
+    targetPort: 8080
+    protocol: TCP
+
+  selector:
+    name: heart-detect-api

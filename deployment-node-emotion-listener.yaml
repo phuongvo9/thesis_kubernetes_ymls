@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-emotion-listener
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: node-emotion-listener
+  template:
+    metadata:
+      labels:
+        name: node-emotion-listener
+    spec:
+      containers:
+        - name: node-emotion-listener
+          image: quanngovan98/node-emotion-app
+          ports:
+          - containerPort: 3000

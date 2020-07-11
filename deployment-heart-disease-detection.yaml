@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-detect-api
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: heart-detect-api
+  template:
+    metadata:
+      labels:
+        name: heart-detect-api
+    spec:
+      containers:
+        - name: heart-detect-api
+          image: quanngovan98/heart-detect-api
+          ports:
+          - containerPort: 8080

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emotion-detect-api
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: emotion-detect-api
+  template:
+    metadata:
+      labels:
+        name: emotion-detect-api
+    spec:
+      containers:
+        - name: emotion-detect-api
+          image: quanngovan98/emotion-detect-api
+          ports:
+          - containerPort: 8501
